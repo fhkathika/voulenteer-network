@@ -3,4 +3,4 @@ import { initializeApp } from "firebase/app";
 const initializeApplication =()=>{
 initializeApp(firebaseConfig)
 }
-export default initializeApplication()
+export default initializeApplication

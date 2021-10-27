@@ -6,32 +6,40 @@ import Donation from './Pages/Donation/Donation';
 import Events from './Pages/Events/Events';
 import Headers from './Pages/Headers';
 import Blog from './Pages/Blog/Blog';
+import Login from './Pages/Login/Login';
+import AuthProvider from './Context/AuthProvider';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <BrowserRouter>
       <Headers></Headers>
       <Switch>
 <Route exact path='/'>
   <Home></Home>
 </Route>
-<Route exact path='/home'>
+<Route  path='/home'>
   <Home></Home>
 </Route>
-<Route exact path='/donation'>
+<Route path='/donation'>
   <Donation></Donation>
 </Route>
-<Route exact path='/events'>
+<PrivateRoute path='/events'>
   <Events></Events>
-</Route>
-<Route exact path='/blog'>
+</PrivateRoute>
+<Route  path='/blog'>
   <Blog></Blog>
+</Route>
+<Route  path='/login'>
+  <Login></Login>
 </Route>
 
       </Switch>
       
       </BrowserRouter>
+      </AuthProvider>
      
     </div>
   );
